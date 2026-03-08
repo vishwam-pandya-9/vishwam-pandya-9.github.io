@@ -65,11 +65,18 @@
   padding: 2rem;
   margin-bottom: 1.5rem;
   transition: all 0.3s ease;
+  background: var(--bg-glass);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
 }
 
 .content:hover {
   transform: translateX(8px);
   box-shadow: var(--shadow-lg);
+  border-color: var(--accent);
 }
 
 .header {
