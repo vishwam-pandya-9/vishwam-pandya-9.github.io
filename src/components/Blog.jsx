@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useIntersectionObserver } from '../hooks/useIntersectionObserver';
 import { blogPosts } from '../data/blogPosts';
 import styles from './Blog.module.css';
@@ -38,9 +39,9 @@ export const Blog = () => {
                 <span className={styles.readTime}>{post.readTime} min read</span>
               </div>
 
-              <a href={`/#blog/${post.slug}`} className={styles.link}>
+              <Link to={`/blog/${post.slug}`} className={styles.link}>
                 Read Article →
-              </a>
+              </Link>
             </article>
           ))}
         </div>
