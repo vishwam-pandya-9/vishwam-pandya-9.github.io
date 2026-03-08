@@ -1,117 +1,42 @@
 export const blogPosts = [
   {
     id: 1,
-    title: "Building a Portfolio with React & GitHub Pages",
-    slug: "building-portfolio-react",
+    title: "Vibe Coding My Portfolio: Claude Did Most of It (Until It Didn't)",
+    slug: "vibe-coding-portfolio",
     date: "2026-03-08",
-    excerpt: "A comprehensive guide to creating a modern portfolio website using React and deploying it to GitHub Pages.",
-    tags: ["React", "GitHub Pages", "Web Development"],
-    readTime: 8,
+    excerpt: "How I built a full React portfolio in a single session with Claude Code — and the real bugs I had to debug along the way.",
+    tags: ["Vibe Coding", "AI", "React"],
+    readTime: 5,
     content: `
-      <h2>Why React for a Portfolio?</h2>
-      <p>React's component model makes it easy to build reusable, maintainable UI pieces — perfect for a portfolio that evolves over time. Paired with Vite, you get lightning-fast builds and an excellent developer experience.</p>
-      <h2>Setting Up the Project</h2>
-      <p>Start by scaffolding a new Vite + React project:</p>
-      <pre><code>npm create vite@latest my-portfolio -- --template react
-cd my-portfolio
-npm install</code></pre>
-      <h2>Deploying to GitHub Pages</h2>
-      <p>GitHub Pages serves static files directly from a repository. For a user site (username.github.io), push your built files to the <code>gh-pages</code> branch. GitHub Actions automates this on every push to main.</p>
-      <h2>Theming with CSS Variables</h2>
-      <p>CSS custom properties enable seamless dark/light mode switching without JavaScript complexity. Define your palette on <code>:root</code> and toggle a data attribute on the HTML element.</p>
-      <h2>Scroll Animations</h2>
-      <p>The Intersection Observer API detects when elements enter the viewport and applies animation classes. This gives you smooth, performant entrance animations without any external library.</p>
+      <h2>The Setup</h2>
+      <p>There's a new way to build things. It doesn't involve Stack Overflow tabs, documentation rabbit holes, or staring at a blinking cursor at 2am wondering if you even know what you're doing. It's called vibe coding — and it's exactly what it sounds like.</p>
+      <p>You describe what you want. The AI builds it. You review. Repeat.</p>
+      <p>I wanted a personal portfolio website. React, GitHub Pages, a clean glassmorphism aesthetic, dark/light theme toggle, scroll animations, a project section, and a blog. In short: a full portfolio that would've taken me a week to build properly on my own.</p>
+      <p>I opened Claude Code, described what I wanted, and watched it scaffold the entire thing. Vite + React, CSS modules, custom hooks for theme switching, an Intersection Observer hook for scroll animations, a GitHub Actions workflow for auto-deployment — all generated in minutes. I didn't write a single line of configuration. I just described the vibe.</p>
+
+      <h2>The Issues (Because There Are Always Issues)</h2>
+      <p>Here's the thing about vibe coding that nobody tells you: the AI is great at writing code, but it can't <em>see</em> your screen. And a lot of bugs are visual.</p>
+      <p>The first thing I noticed after the site was up? The Work Experience section was completely invisible. Not broken — just... not showing. The DOM had the data. The component was rendering. But nothing appeared on the page.</p>
+      <p>Turns out the culprit was a <code>.stagger</code> CSS animation class that set <code>opacity: 0</code> by default. The plan was for an Intersection Observer to add a <code>.visible</code> class when elements scrolled into view — but the Observer was only watching the parent <code>&lt;section&gt;</code>, not the individual child cards. So the cards sat there, invisible, forever waiting for a signal that was never coming.</p>
+      <p>Fix? Two seconds. Remove <code>stagger</code> from the child elements. But finding it? That took some digging. Then the blog articles had the exact same bug. Same class, same invisible fate.</p>
+
+      <h2>Adding Content on the Fly</h2>
+      <p>Once the layout was actually visible, I asked Claude to add a dummy article. It created the blog entry, added the metadata, wrote the content. Done in one prompt. That part was pure vibe. No friction, no boilerplate, just intent → result.</p>
+
+      <h2>Routing: When Clicking Does Nothing</h2>
+      <p>The next problem: clicking "Read Article" did absolutely nothing. The links were there, styled correctly, pointing to the right slugs — but nothing happened. No navigation, no new page, no URL change.</p>
+      <p>The root issue was that there was no routing. The fix involved wrapping the app in React Router's <code>HashRouter</code> (critical for GitHub Pages, which can't handle server-side redirects), setting up routes for <code>/</code> and <code>/blog/:slug</code>, and creating a <code>BlogPost</code> component that reads the slug from the URL and renders the matching article.</p>
+      <p>It works now. Click an article — the page changes, the URL updates, the content loads.</p>
+
+      <h2>What Vibe Coding Actually Feels Like</h2>
+      <p>The <em>building</em> part is shockingly easy. Describing what you want and watching it materialize is genuinely exciting. The architecture, the boilerplate, the wiring — Claude handles all of it without complaint.</p>
+      <p>But the <em>debugging</em> part still requires you. Not because the AI can't fix bugs — it absolutely can — but because you still have to <em>notice</em> the bug, describe it accurately, and understand the feedback loop. The AI can't see your screen. It doesn't know a section is invisible until you tell it.</p>
+      <p>That's the real skill in vibe coding: not writing code, but being a good observer. Noticing what's wrong, communicating it clearly, and trusting the process.</p>
+      <p>Today I built a full portfolio with a blog, routing, animations, and auto-deployment — in a single session. I hit three real bugs. I fixed all three. That's vibe coding. Mostly effortless. Occasionally humbling. Completely worth it.</p>
     `
   },
   {
     id: 2,
-    title: "Exploring the Latest LLM Models in 2026",
-    slug: "latest-llm-models-2026",
-    date: "2026-03-01",
-    excerpt: "An overview of cutting-edge language models released in early 2026 and their practical applications.",
-    tags: ["GenAI", "LLMs", "Machine Learning"],
-    readTime: 12,
-    content: `
-      <h2>The State of LLMs in 2026</h2>
-      <p>The landscape of large language models has shifted dramatically. Models are smaller, faster, and far more capable than their predecessors — with reasoning capabilities that were considered impossible just two years ago.</p>
-      <h2>Key Trends</h2>
-      <ul>
-        <li><strong>Multimodality</strong> — Text, vision, audio, and code in a single model</li>
-        <li><strong>Long context</strong> — Millions of tokens in a single pass</li>
-        <li><strong>Agentic reasoning</strong> — Models that plan, reflect, and self-correct</li>
-        <li><strong>Efficiency</strong> — Smaller models matching larger ones through distillation</li>
-      </ul>
-      <h2>Practical Applications for Backend Engineers</h2>
-      <p>For backend developers, the most impactful use cases are intelligent data extraction, code generation, autonomous API orchestration, and structured output generation for downstream processing.</p>
-      <h2>What to Watch</h2>
-      <p>The convergence of agentic frameworks and long-context models is enabling entirely new categories of applications — systems that can autonomously navigate complex workflows over extended periods.</p>
-    `
-  },
-  {
-    id: 3,
-    title: "CSS Variables: A Game Changer for Theming",
-    slug: "css-variables-theming",
-    date: "2026-02-20",
-    excerpt: "How to leverage CSS custom properties for dynamic theming without JavaScript complexity.",
-    tags: ["CSS", "Web Development", "Frontend"],
-    readTime: 6,
-    content: `
-      <h2>What Are CSS Custom Properties?</h2>
-      <p>CSS custom properties (also called CSS variables) are entities defined by developers that contain specific values to be reused throughout a document. They follow the syntax <code>--property-name: value</code>.</p>
-      <h2>Defining a Theme System</h2>
-      <pre><code>:root[data-theme='light'] {
-  --bg-primary: #ffffff;
-  --text-primary: #1a1a2e;
-  --accent: #6366f1;
-}
-
-:root[data-theme='dark'] {
-  --bg-primary: #0f172a;
-  --text-primary: #f1f5f9;
-  --accent: #818cf8;
-}</code></pre>
-      <h2>Switching Themes with JavaScript</h2>
-      <p>Toggle themes by changing a single attribute on the root element. All variables cascade instantly — no component re-renders needed.</p>
-      <pre><code>document.documentElement.setAttribute('data-theme', 'dark');</code></pre>
-      <h2>Advantages Over CSS-in-JS</h2>
-      <p>CSS variables require zero JavaScript at runtime, work with any styling approach, and are natively supported in all modern browsers. They're also inspectable in DevTools, making debugging a breeze.</p>
-    `
-  },
-  {
-    id: 4,
-    title: "Intersection Observer API: Lazy Loading & More",
-    slug: "intersection-observer-api",
-    date: "2026-02-10",
-    excerpt: "Master the Intersection Observer API for scroll animations, infinite scroll, and performance optimizations.",
-    tags: ["JavaScript", "Performance", "Web APIs"],
-    readTime: 10,
-    content: `
-      <h2>What Is the Intersection Observer?</h2>
-      <p>The Intersection Observer API provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or the document's viewport. It replaces expensive scroll event listeners.</p>
-      <h2>Basic Usage</h2>
-      <pre><code>const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
-    }
-  });
-}, { threshold: 0.1 });
-
-observer.observe(document.querySelector('.my-element'));</code></pre>
-      <h2>Use Cases</h2>
-      <ul>
-        <li><strong>Scroll animations</strong> — Trigger CSS animations as elements enter the viewport</li>
-        <li><strong>Lazy loading images</strong> — Only load images when they're about to be visible</li>
-        <li><strong>Infinite scroll</strong> — Load more content when the user nears the bottom</li>
-        <li><strong>Ad viewability</strong> — Track when ads are actually seen</li>
-      </ul>
-      <h2>Performance Benefits</h2>
-      <p>Unlike scroll event listeners, Intersection Observer runs off the main thread. This means no jank, no dropped frames, and no need for debouncing or throttling.</p>
-    `
-  },
-  {
-    id: 5,
     title: "Getting Started with Agentic Systems",
     slug: "agentic-systems-guide",
     date: "2026-03-15",
