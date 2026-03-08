@@ -1,0 +1,89 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  margin: 1rem;
+  border-radius: 12px;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2rem;
+}
+
+.logo a {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.logo a:hover {
+  transform: scale(1.1);
+}
+
+.links {
+  display: flex;
+  list-style: none;
+  gap: 2rem;
+}
+
+.links a {
+  font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
+}
+
+.links a:hover {
+  color: var(--accent);
+}
+
+.links a:hover::after {
+  width: 100%;
+}
+
+.themeToggle {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background: var(--accent-light);
+  color: var(--accent);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.themeToggle:hover {
+  transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .links {
+    gap: 1rem;
+    font-size: 0.9rem;
+  }
+
+  .logo a {
+    font-size: 1.2rem;
+  }
+}

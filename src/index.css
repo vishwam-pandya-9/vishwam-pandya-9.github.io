@@ -1,0 +1,14 @@
+/* Base reset - all component styles are in modules */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+}
+
+body {
+  overflow-x: hidden;
+}
