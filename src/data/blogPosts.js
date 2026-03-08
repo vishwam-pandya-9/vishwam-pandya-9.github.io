@@ -34,5 +34,14 @@ export const blogPosts = [
     excerpt: "Master the Intersection Observer API for scroll animations, infinite scroll, and performance optimizations.",
     tags: ["JavaScript", "Performance", "Web APIs"],
     readTime: 10
+  },
+  {
+    id: 5,
+    title: "Getting Started with Agentic Systems",
+    slug: "agentic-systems-guide",
+    date: "2026-03-15",
+    excerpt: "A practical guide to building autonomous AI agents that can reason, plan, and execute tasks independently.",
+    tags: ["AI", "Agents", "Backend"],
+    readTime: 15
   }
 ];
